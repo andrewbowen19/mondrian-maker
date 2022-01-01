@@ -1,11 +1,14 @@
 # mondrian-maker
 Python package that produces randomly-generated Mondrian-style plots.
 
+This python library allows the user to create [Mondrian-style]() plots via numpy and matplotlib. [Piet Mondrian](https://en.wikipedia.org/wiki/Piet_Mondrian) was one of the most influential artists of the 20th century. The package `mondrian-maker` seeks to recreate his style via randomly-generated (or user-defined) sets of numbers.
 
 ## Output Samples
-![*Composition with Red, Blue, and Yellow*, Piet Mondrian, 1930 ](img/mondrian_de_stijl_example.png?raw=true)
+***Composition with Red, Blue, and Yellow*, Piet Mondrian, 1930**
+![](img/mondrian_de_stijl_example.png?raw=true)
 
-![`mondrian`-generated plot](img/mondrian_generated_example.png?raw=true)
+**`mondrian.py`-generated plot**
+![](img/mondrian_generated_example.png?raw=true)
 
 
 ## Installation
@@ -20,6 +23,8 @@ From the command-line:
 Then, you can install via `pip`.
 
     pip install .
+
+We are also planning on publishing this package to [PyPi](https://pypi.org) to allow pip install without neeeding to clone this repo.
 
 ## Usage
 If pip installed locally, the mondrian class can be imported into a python script as shown below:
