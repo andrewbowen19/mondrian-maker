@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import uuid
+import argparse
 
 
 class mondrian():
@@ -102,7 +103,7 @@ class mondrian():
             f.suptitle(title_hex)
 
         else:
-            pass
+            title = ''
 
         # Saving fig if desired by user
         if savefig:
@@ -116,14 +117,27 @@ class mondrian():
 
 
 if __name__ == "__main__":
-    m = mondrian()
-    # Generating random # of plots
-    n_plots = 3 #np.random.randint(3, 5) #5, 100)
-    print(f'Generating {n_plots} mondrian plots')
+    # Grabbing any command line args
+    parser = argparse.ArgumentParser(description='Mondrian arg parser')
+    parser.add_argument('--array_size', type=int, help='Size of x and y arrays to be generated')
+    parser.add_argument('--title', type=str, help='String to be used as figure title')
+    parser.add_argument('--n_plots', type=int,
+                        nargs='?', const=1,
+                        default=1, help='number of plots to maker (defualt 1)')
+    parser.add_argument('--savefig', type=bool, help='whether or not to save the figure as a pdf')
+    args = parser.parse_args()
 
-    my_x = np.random.random(m.array_size)
-    my_y = np.random.random(m.array_size)
+    # Getting command line args
+    array_size = args.array_size
+    title = args.title
+    n_plots = args.n_plots
+    savefig = args.savefig
+
+    m = mondrian(array_size=array_size)
+    # Generating random # of plots
+    print(f'Generating {n_plots} mondrian plot(s)')
+
     # Generating some # of plots
     for _ in range(0, n_plots):
-        m.make_mondrian(my_x)
+        m.make_mondrian(title=title, savefig=savefig)
 
