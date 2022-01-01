@@ -57,6 +57,9 @@ class mondrian():
                                  is generated and used as the figure title
             savefig : bool, default False; if True, save pdf of figure
                                 to plots/mondrian dir
+
+        returns:
+            f, ax : matplotlib Figure and Axes objects. Contain plot created
         """
         # Generating random bin edges for
         bin_sizes = np.random.randint(5,12)
@@ -107,19 +110,28 @@ class mondrian():
 
         # Saving fig if desired by user
         if savefig:
-            fig_path = os.path.join("..",
+            # index = np.random.randint(0,100000)
+            if title:
+                fig_path = os.path.join("..",
                                    "plots", "mondrian",
                                    f"mondrian_{title}.pdf")
+            else:
+                index = uuid.uuid4().hex
+                fig_path = os.path.join("..",
+                                   "plots", "mondrian",
+                                   f"mondrian_{index}.pdf")
             print(f'Saving Mondrian image to path: {fig_path}')
             f.savefig(fig_path)
         
         plt.show()
 
+        return f, ax
+
 
 if __name__ == "__main__":
     # Grabbing any command line args
     parser = argparse.ArgumentParser(description='Mondrian arg parser')
-    parser.add_argument('--array_size', type=int, help='Size of x and y arrays to be generated')
+    parser.add_argument('--array_size', type=int, nargs='?', const=1, default=100, help='Size of x and y arrays to be generated')
     parser.add_argument('--title', type=str, help='String to be used as figure title')
     parser.add_argument('--n_plots', type=int,
                         nargs='?', const=1,
