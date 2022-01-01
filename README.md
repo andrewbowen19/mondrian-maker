@@ -26,7 +26,10 @@ Then, you can install via `pip`.
 
     pip install .
 
-We are also planning on publishing this package to [PyPi](https://pypi.org) to allow pip install without neeeding to clone this repo.
+### Alternative Installation as of v0.0.2
+This package is also installable via `pip` and [PyPi](https://pypi.org). The project page can be found for distribution [here](https://pypi.org/project/mondrian-maker/0.0.2/). You can also install the library via the following command:
+
+    pip install mondrian-maker
 
 ## Usage
 If pip installed locally, the mondrian class can be imported into a python script as shown below:
@@ -46,5 +49,5 @@ The `mondrian` class in the `mondrian_maker.mondrian` module contained the metho
 
 * [ ] Add more command-line arguments to parser for direct run by user
 * [ ] Make sphinx docs ([readthedocs](https://readthedocs.org))
-* [ ] [Publish to PyPi](https://realpython.com/pypi-publish-python-package/)
+* [X] [Publish to PyPi](https://realpython.com/pypi-publish-python-package/)
 
