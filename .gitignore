@@ -133,3 +133,4 @@ plots/*.png
 plots/mondrian/*.png
 *.jpg
 
+.DS_Store
